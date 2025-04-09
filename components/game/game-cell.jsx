@@ -1,13 +1,13 @@
+import clsx from 'clsx';
 import { GameSymbol } from './game-symbol';
-import styles from './game.module.css';
 
 export function GameCell({ symbol, isWinner, onClick }) {
   return (
     <button
-      className={`${styles['cell']} ${isWinner ? styles['cell--win'] : ''}`}
+      className={clsx('border border-gray-400 -mt-px -ml-px flex items-center justify-center bg-transparent', isWinner && 'bg-red-400')}
       onClick={onClick}
     >
-      <GameSymbol symbol={symbol} />
+     {symbol ? <GameSymbol symbol={symbol} /> : null} 
     </button>
   );
 }
