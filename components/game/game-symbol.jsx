@@ -8,8 +8,6 @@ export function GameSymbol({ symbol }) {
   };
 
   return (
-    <span className={`text-lg  ${getSymbolClassName(symbol)}`} >
-      {symbol}
-    </span>
+    <span className={`text-lg  ${getSymbolClassName(symbol)}`}>{symbol}</span>
   );
 }
