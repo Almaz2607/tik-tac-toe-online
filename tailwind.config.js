@@ -9,8 +9,10 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    fontSize: {
-      lg: ['20px', '24px'],
+    extend: {
+      lineHeight: {
+        tight: '1.2',
+      },
     },
   },
   plugins: [],
