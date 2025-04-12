@@ -1,4 +1,4 @@
-import { GameTitle } from '../components/game';
+import { GameInfo, GameTitle } from '../components/game';
 import { Header } from '../components/header';
 
 export default function HomePage() {
@@ -7,6 +7,7 @@ export default function HomePage() {
       <Header />
       <main className="max-w-[616px] mx-auto pt-6">
         <GameTitle />
+        <GameInfo className="mt-4" />
       </main>
     </div>
   );
