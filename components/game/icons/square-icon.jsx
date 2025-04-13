@@ -1,6 +1,7 @@
-export function SquareIcon() {
+export function SquareIcon({ className }) {
   return (
     <svg
+      className={className}
       width="13"
       height="13"
       viewBox="0 0 13 13"

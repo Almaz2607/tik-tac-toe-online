@@ -1,4 +1,4 @@
-export function CircleOutlineIcon({ className }) {
+export function ZeroIcon({ className }) {
   return (
     <svg
       className={className}

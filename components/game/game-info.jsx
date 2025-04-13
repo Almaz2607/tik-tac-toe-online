@@ -3,7 +3,7 @@ import { Profile } from '../profile/profile';
 import { TriangleIcon } from './icons/triangle-icon';
 import { SquareIcon } from './icons/square-icon';
 import { CrossIcon } from './icons/cross-icon';
-import { CircleOutlineIcon } from './icons/circle-outline-icon';
+import { CircleOutlineIcon } from './icons/zero-icon';
 
 export function GameInfo({ className }) {
   return (
