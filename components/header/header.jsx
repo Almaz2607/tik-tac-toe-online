@@ -1,4 +1,5 @@
 import { Profile } from '../profile/profile';
+import { UiButton } from '../uikit/ui-button';
 import { ArrowDownIcon } from './icons/arrow-down-icon';
 
 export function Header() {
@@ -12,9 +13,9 @@ export function Header() {
         </span>
       </div>
       <div className="w-px h-8 bg-slate-200 mx-6"></div>
-      <button className="w-44 bg-teal-600 text-2xl hover:bg-teal-500 transition-colors text-white leading-tight rounded-lg px-5 py-2">
+      <UiButton className="w-44" variant="primary" size="lg">
         Играть
-      </button>
+      </UiButton>
       <button className="flex items-center text-teal-600 ml-auto gap-2">
         <Profile />
         <ArrowDownIcon />
