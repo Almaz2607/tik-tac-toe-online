@@ -1,12 +1,14 @@
 import clsx from 'clsx';
 import { UiButton } from '../uikit/ui-button';
 import { GameSymbol } from './game-symbol';
-import { UseGameState } from './use-game-state';
 
-export function GameField({ className, playersCount }) {
-  const { cells, currentMove, nextMove, handleCellClick } =
-    UseGameState(playersCount);
-
+export function GameField({
+  className,
+  cells,
+  currentMove,
+  nextMove,
+  handleCellClick,
+}) {
   const actions = (
     <>
       <UiButton variant="primary" size="md">
