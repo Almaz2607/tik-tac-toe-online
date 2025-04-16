@@ -1,6 +1,7 @@
 import { Profile } from '../profile/profile';
 import { UiButton } from '../uikit/ui-button';
 import { ArrowDownIcon } from './icons/arrow-down-icon';
+import avatar1 from '../game/images/avatar-1.png';
 
 export function Header() {
   return (
@@ -17,7 +18,7 @@ export function Header() {
         Играть
       </UiButton>
       <button className="flex items-center text-teal-600 ml-auto gap-2">
-        <Profile />
+        <Profile avatar={avatar1} name="Jonaskakar" raiting="1230" />
         <ArrowDownIcon />
       </button>
     </header>
