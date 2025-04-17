@@ -84,7 +84,6 @@ function GameMoveInfo({ actions, currentMove, nextMove }) {
           Следующий: <GameSymbol symbol={nextMove} className="w-3 h-3" />
         </div>
       </div>
-
       {actions}
     </div>
   );
