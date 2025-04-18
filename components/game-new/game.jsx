@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useCallback, useMemo, useReducer } from 'react';
 import { PLAYERS } from './constants';
 import { BackLink } from './ui/back-link';
 import { GameInfo } from './ui/game-info';
@@ -23,18 +23,25 @@ export function Game() {
     gameStateReducer,
     {
       playersCount: PLAYERS_COUNT,
-      defaultTimer: 10000,
+      defaultTimer: 5000,
       currentMoveStart: Date.now(),
     },
     initGameState,
   );
+
+  console.log(gameState);
+
   const { cells, currentMove } = gameState;
 
-  useInterval(1000, gameState.currentMove, () => {
-    dispatch({ type: GAME_STATE_ACTIONS.TICK, now: Date.now() });
-  });
+  useInterval(
+    1000,
+    !!gameState.currentMoveStart,
+    useCallback(() => {
+      dispatch({ type: GAME_STATE_ACTIONS.TICK, now: Date.now() });
+    }, []),
+  );
 
-  const winnerSequence = computeWinner(gameState);
+  const winnerSequence = useMemo(() => computeWinner(gameState), [gameState]);
   const nextMove = getNextMove(gameState);
   const winnerSymbol = computeWinnerSymbol(gameState, {
     winnerSequence,
@@ -42,6 +49,15 @@ export function Game() {
   });
 
   const winnerPlayer = PLAYERS.find((player) => player.symbol === winnerSymbol);
+  console.log(winnerPlayer);
+
+  const handleCellClick = useCallback((index) => {
+    dispatch({
+      type: GAME_STATE_ACTIONS.CELL_CLICK,
+      index,
+      now: Date.now(),
+    });
+  }, []);
 
   return (
     <>
@@ -49,7 +65,7 @@ export function Game() {
         backLink={<BackLink />}
         title={<GameTitle />}
         gameInfo={
-          <GameInfo isRatingGame playersCount={4} timeMode={'1 мин. на ход'} />
+          <GameInfo isRatingGame playersCount={2} timeMode={'1 мин. на ход'} />
         }
         playerList={PLAYERS.slice(0, PLAYERS_COUNT).map((player, index) => {
           const { timer, timerStartAt } = computePlayerTimer(
@@ -75,15 +91,10 @@ export function Game() {
         gameCells={cells.map((cell, index) => (
           <GameCell
             key={index}
+            index={index}
             isWinner={winnerSequence?.includes(index)}
             disabled={!!winnerSymbol}
-            onClick={() =>
-              dispatch({
-                type: GAME_STATE_ACTIONS.CELL_CLICK,
-                index,
-                now: Date.now(),
-              })
-            }
+            onClick={handleCellClick}
             symbol={cell}
           />
         ))}

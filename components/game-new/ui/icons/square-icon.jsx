@@ -16,21 +16,5 @@ export function SquareIcon({ className }) {
         stroke-linejoin="round"
       />
     </svg>
-
-    // <svg
-    //   width="14"
-    //   height="14"
-    //   viewBox="0 0 14 14"
-    //   fill="none"
-    //   xmlns="http://www.w3.org/2000/svg"
-    // >
-    //   <path
-    //     d="M10.6 1H3.4C2.07452 1 1 2.07452 1 3.4V10.6C1 11.9255 2.07452 13 3.4 13H10.6C11.9255 13 13 11.9255 13 10.6V3.4C13 2.07452 11.9255 1 10.6 1Z"
-    //     stroke="black"
-    //     stroke-width="1.97531"
-    //     stroke-linecap="round"
-    //     stroke-linejoin="round"
-    //   />
-    // </svg>
   );
 }
